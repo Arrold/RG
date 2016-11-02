@@ -1,0 +1,34 @@
+---
+- name: Create Groups
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: Create Web Server Group
+      clc_group:
+        name: 'Production Web Servers'
+        parent: 'Si W Test'
+        location: GB3
+        state: present
+      register: clc
+    - name: Create SQL Server Group
+      clc_group:
+        name: 'Production SQL Servers'
+        parent: 'Si W Test'
+        location: GB3
+        state: present
+      register: clc
+    - name: Create Infra Server Group
+      clc_group:
+        name: 'Production Infra Servers'
+        parent: 'Si W Test'
+        location: GB3
+        state: present
+      register: clc
+    - name: Create Dev Server Group
+      clc_group:
+        name: 'Development Servers'
+        parent: 'Si W Test'
+        location: GB3
+        state: present
+      register: clc
